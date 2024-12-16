@@ -43,11 +43,11 @@ TOKEN_ENV_VAR = "AIPROXY_TOKEN"
 BASE_URL = "https://aiproxy.sanand.workers.dev/openai/v1"
 
 # Early validation
-if not os.environ[TOKEN_ENV_VAR]:
+if not os.getenv(TOKEN_ENV_VAR):
     logging.error(f"{TOKEN_ENV_VAR} is missing. Set it in the environment variables.")
     sys.exit(1)
 
-API_TOKEN = os.environ[TOKEN_ENV_VAR]
+API_TOKEN = os.getenv(TOKEN_ENV_VAR)
 
 
 def load_data(file_path):
